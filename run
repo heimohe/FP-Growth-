@@ -1,0 +1,12 @@
+基于hdfs存储，运行说明：
+hadoop fs -lsr /
+ 1850  hadoop fs -mkdir /input
+ 1851  hadoop fs -mkdir /output
+ 1852  hadoop fs -mkdir /temp
+ 1853  cd data/fpgrowth/
+ 1854  hadoop fs -put da.dat /input
+ 1855  hadoop fs -put ua.dat /input
+ 1856  history 
+ 1857  spark-submit --class Main --master local[3] /home/wuyunlong/data/fpgrowth/liuhe.jar hdfs://127.0.0.1/input/da.dat hdfs://127.0.0.1/input/ua.dat hdfs://127.0.0.1/output/freqitemsets hdfs://127.0.0.1/output/recommenditems hdfs://127.0.0.1/temp/Dikaerji
+ 1858  hadoop fs -lsr /
+ 1859  hadoop fs -cat /output/recommenditems/part-00000
